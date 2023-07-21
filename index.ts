@@ -1,13 +1,9 @@
-import * as dotenv from 'dotenv'
-import {BitGo} from 'bitgo/src';
-import {Eth} from "@bitgo/sdk-coin-eth/src";
-import {RecoverOptions} from "@bitgo/sdk-coin-eth/src/eth";
-
+import {BitGoAPI} from './BitGoJS/modules/sdk-api';
+import {Eth, RecoverOptions} from "./BitGoJS/modules/sdk-coin-eth";
 import recoveryOptions from './keycard.json';
+import {AliasEnvironments} from "./BitGoJS/modules/sdk-core";
 
-dotenv.config()
-
-const sdk = new BitGo({});
+const sdk = new BitGoAPI({env: AliasEnvironments.production});
 
 const baseCoin = Eth.createInstance(sdk) as Eth;
 
