@@ -1,8 +1,9 @@
 import * as dotenv from 'dotenv'
-import {BitGo} from '@bitgo-beta/bitgo';
-import {Eth} from "@bitgo-beta/sdk-coin-eth";
+import {BitGo} from 'bitgo/src';
+import {Eth} from "@bitgo/sdk-coin-eth/src";
+import {RecoverOptions} from "@bitgo/sdk-coin-eth/src/eth";
+
 import recoveryOptions from './keycard.json';
-import {RecoverOptions} from "@bitgo-beta/sdk-coin-eth/dist/src/eth";
 
 dotenv.config()
 

@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/zahin-mohammad/recovery-raphael#readme",
   "dependencies": {
-    "@bitgo-beta/bitgo": "^14.2.1-beta.124",
-    "@bitgo-beta/sdk-coin-eth": "^1.1.1-beta.125",
+    "bitgo": "file:./BitGoJS/modules/bitgo",
+    "@bitgo/sdk-coin-eth": "file:./BitGoJS/modules/sdk-coin-eth",
     "dotenv": "^16.3.1",
     "inquirer": "^9.2.8",
     "ts-node": "^10.9.1",
