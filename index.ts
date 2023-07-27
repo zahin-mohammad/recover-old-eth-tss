@@ -12,25 +12,27 @@ const sdk = new BitGoAPI({env: AliasEnvironments.production});
 const baseCoin = Eth.createInstance(sdk) as Eth;
 
 async function recover(): Promise<void> {
+    const shouldSignAndSend = process.argv.slice(2)[1] !== undefined;
     const options: Omit<RecoverOptions, 'isTss' | 'walletContractAddress'> = recoveryOptions;
     const res = await baseCoin.recover({
         ...options,
         isTss: true,
         // not needed for tss
         walletContractAddress: "",
-    }, false);
+    }, shouldSignAndSend);
     console.log(JSON.stringify(res, null, 2));
 }
 
 async function recoverToken(): Promise<void> {
     const tokenContractAddress = process.argv.slice(2)[1];
-    assert(tokenContractAddress, 'missing token constract address');
+    const shouldSignAndSend = process.argv.slice(2)[2] !== undefined;
+    assert(tokenContractAddress, 'missing token contract address');
     const options: Omit<RecoverOptions, 'isTss' | 'walletContractAddress'> = recoveryOptions;
     const res = await baseCoin.recoverTokenTss({
         ...options,
         tokenContractAddress,
         isTss: true,
-    }, false);
+    }, shouldSignAndSend);
     console.log(JSON.stringify(res, null, 2));
 }
 
