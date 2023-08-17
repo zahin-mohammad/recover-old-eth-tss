@@ -2,6 +2,7 @@ import {BitGoAPI} from './BitGoJS/modules/sdk-api';
 import {Eth, RecoverOptions} from "./BitGoJS/modules/sdk-coin-eth";
 import recoveryOptions from './keycard.json';
 import {AliasEnvironments, Wallet} from "./BitGoJS/modules/sdk-core";
+import assert from 'assert';
 
 const arg = process.argv.slice(2).length? process.argv.slice(2)[0] : '';
 assert(arg, 'expected recover or recoverToken <address> as arguments');
